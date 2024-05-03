@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Empresa</title>
+    <!-- Incluir Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">   
+</head>
+<body>
+    <!-- Incluir os fragments -->
+    <div th:replace="fragments/header :: headerFragment"></div>
+    <div th:replace="fragments/menu :: menuFragment"></div>
+
+    <!-- Conteúdo específico da página -->
+    <div id="content">
+       
+    </div>
+
+    <!-- Incluir o fragment do rodapé -->
+    <div th:replace="fragments/footer :: footerFragment"></div>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

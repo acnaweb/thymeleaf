@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Funcionários</title>
+    <!-- Incluir Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Incluir os fragments -->
+    <div th:replace="fragments/header :: headerFragment"></div>
+    <div th:replace="fragments/menu :: menuFragment"></div>
+
+    <!-- Conteúdo específico da página -->
+    <div id="content">
+        <!-- Conteúdo específico da página -->
+        <div class="container mt-4">
+            <h3>Listar Funcionários</h3>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="funcionario : ${funcionarios}">
+                                <td th:text="${funcionario.id}"></td>
+                                <td th:text="${funcionario.nome}"></td>
+                                <td>
+                                    <a th:href="@{/funcionarios/editar/{id}(id=${funcionario.id})" class="btn btn-primary">Editar</a>
+                                    <a th:href="@{/funcionarios/excluir/{id}(id=${funcionario.id})" class="btn btn-danger">Excluir</a>
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>1</td>
+                                <td>Pelé</td>
+                                <td>
+                                    <a href="#" class="btn-sm btn-primary">Editar</a>
+                                    <a href="#" class="btn-sm btn-danger">Excluir</a>
+
+                                </td>
+                                <!-- <td>
+                                    <a th:href="@{/funcionarios/editar/{id}(id=${funcionario.id})" class="btn btn-primary">Editar</a>
+                                    <a th:href="@{/funcionarios/excluir/{id}(id=${funcionario.id})" class="btn btn-danger">Excluir</a>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="/funcionarios/novo" class="btn-sm btn-success">Novo Funcionário</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluir o fragment do rodapé -->
+    <div th:replace="fragments/footer :: footerFragment"></div>
+   
+</body>
+</html>
